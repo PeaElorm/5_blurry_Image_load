@@ -1,0 +1,84 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap");
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Roboto", sans-serif;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin: 0;
+  height: 100vh;
+  overflow: hidden;
+}
+
+.Bg-Image {
+  background: url(/Sisters.png) center center/cover no-repeat;
+  left: -30;
+  top: -30;
+  z-index: -1;
+  width: calc(100vw + 60px);
+  height: calc(100vh + 60px);
+  position: absolute;
+  filter: blur(30px);
+}
+
+.loading {
+  font-size: 50px;
+  color: #fff;
+}
+
+#birthday-message {
+  color: #fff;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 40px;
+  opacity: 0;
+  animation-name: birthday-animation;
+  animation-duration: 3s;
+  animation-delay: 3s; /* delay the animation for 5 seconds */
+  animation-fill-mode: forwards; /* keep the final state of the animation */
+}
+
+@keyframes birthday-animation {
+  0% {
+    opacity: 0;
+    transform: translate(-50%, -50%) scale(1);
+  }
+  50% {
+    transform: translate(-50%, -60%) scale(1.2);
+  }
+  100% {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1);
+  }
+}
+
+#birthday-message::after {
+  content: "🎉";
+  display: inline-block;
+  margin-left: 10px;
+  animation-name: confetti-animation;
+  animation-duration: 3s;
+  animation-delay: 4s; /* delay the animation for 5 seconds */
+  animation-fill-mode: forwards; /* keep the final state of the animation */
+}
+
+@keyframes confetti-animation {
+  0% {
+    transform: scale(0);
+    opacity: 0;
+  }
+  50% {
+    transform: scale(1.5) rotate(45deg);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
